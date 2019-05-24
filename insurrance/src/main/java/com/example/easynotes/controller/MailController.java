@@ -27,8 +27,8 @@ public class MailController {
         Properties props = System.getProperties();
         props.put("mail.smtp.starttls.enable","true");
         props.put("mail.smtp.host","smtp.gmail.com");
-        props.put("mail.smtp.user","ngocthuong2561992@gmail.com");
-        props.put("mail.smtp.password","Ronaldo256");
+        props.put("mail.smtp.user","abcd@gmail.com");
+        props.put("mail.smtp.password","123");
         props.put("mail.smtp.port", "465");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.socketFactory.port", "465");
@@ -38,7 +38,7 @@ public class MailController {
                 new Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(
-                                "ngocthuong2561992@gmail.com", "Ronaldo256");
+                                "abcd@gmail.com", "123");
                     }
                 });
         session.setDebug(false);
