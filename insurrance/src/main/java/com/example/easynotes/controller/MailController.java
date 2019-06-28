@@ -3,10 +3,7 @@ package com.example.easynotes.controller;
 import com.example.easynotes.model.MailRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -18,6 +15,7 @@ import java.util.Properties;
 /**
  * Created by ThuongPham on 23/05/2019.
  */
+@CrossOrigin(origins = "http://localhost:3005")
 @RestController
 @RequestMapping("/api")
 public class MailController {

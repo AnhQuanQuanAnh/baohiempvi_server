@@ -18,6 +18,7 @@ public class Customer {
     private Integer phone;
     private String address;
     private String email;
+    private String note;
 
     public Integer getId() {
         return id;
@@ -57,5 +58,13 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

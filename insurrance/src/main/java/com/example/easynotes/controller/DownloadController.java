@@ -23,6 +23,7 @@ import java.util.*;
 /**
  * Created by ThuongPham on 23/05/2019.
  */
+@CrossOrigin(origins = "http://localhost:3005")
 @RestController
 @RequestMapping("/api")
 public class DownloadController {

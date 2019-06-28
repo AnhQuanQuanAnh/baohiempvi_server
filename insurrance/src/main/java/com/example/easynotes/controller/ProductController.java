@@ -13,6 +13,7 @@ import java.util.List;
 /**
  * Created by ThuongPham on 22/05/2019.
  */
+@CrossOrigin(origins = "http://localhost:3005")
 @RestController
 @RequestMapping("/api")
 public class ProductController {
