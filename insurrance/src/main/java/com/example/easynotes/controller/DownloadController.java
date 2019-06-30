@@ -28,13 +28,13 @@ import java.util.*;
 @RequestMapping("/api")
 public class DownloadController {
 
-    @GetMapping("/downloadFile")
-    public ResponseEntity<Resource> downloadFile(HttpServletRequest request, HttpServletResponse res) {
+    @GetMapping("/downloadFile/{fileName}")
+    public ResponseEntity<Resource> downloadFile(HttpServletRequest request, @PathVariable("fileName") String fileName) {
         // Load file as Resource
         Resource resource;
         String contentType;
         try {
-            File file = ResourceUtils.getFile("classpath:BAOHIEM.doc");
+            File file = ResourceUtils.getFile("classpath:"+fileName+".doc");
             resource = new UrlResource(file.toURI());
             contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
         } catch (IOException ex) {
@@ -53,13 +53,13 @@ public class DownloadController {
     @GetMapping("/showFile/{fileName}")
     public ResponseEntity<Resource> showFile(HttpServletRequest request, HttpServletResponse res, @PathVariable("fileName") String fileName) {
         try {
-            File file1 = ResourceUtils.getFile("classpath:"+fileName+".pdf");
+            File file = ResourceUtils.getFile("classpath:"+fileName+".pdf");
             res.setContentType("application/pdf");
             res.setHeader("Expires", "0");
             res.setHeader("Cache-Control","must-revalidate, post-check=0, pre-check=0");
-            res.setHeader("Content-Disposition","inline;filename=" + file1.getName());
+            res.setHeader("Content-Disposition","inline;filename=" + file.getName());
             res.setHeader("Accept-Ranges", "bytes");
-            FileInputStream fis = new FileInputStream(file1);
+            FileInputStream fis = new FileInputStream(file);
             BufferedInputStream bis = new BufferedInputStream(fis);
             ServletOutputStream sos = res.getOutputStream();
             byte[] buffer = new byte[2048];
